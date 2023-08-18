@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State var nickName = ""
+    @State var inputName = ""
+    @State var nickName = "World"
 
     var body: some View {
 
@@ -17,16 +18,14 @@ struct ContentView: View {
             Image(systemName: "globe")
             .imageScale(.large)
             .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("Hello, \(nickName)")
 
-            // テキスト入力エリア
-            TextField("ニックネーム", text: $nickName)
+            TextField("ニックネーム", text: $inputName)
                 .frame(width: 90)
 
-            // ボタン
             Button(action: {
-                // ボタンイベント
-                print(nickName)
+                print(inputName)
+                nickName = inputName
             }) {
                 Text("確定")
             }
